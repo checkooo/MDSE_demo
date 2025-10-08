@@ -5,8 +5,8 @@ Code for the paper, *"Attacking the spike: On the security of spiking neural net
 ## Abstract
 
 We provide code for Mixed Dynamic Spiking Estimation (MDSE) attack proposed in the paper published in Neurocomputing journal (2025).
-In the paper we evaluate the attack among different SNNs, CNNs, and Vision transformers.
-MDSE utilizes a dynamic gradient estimation scheme to fully exploit multiple surrogate gradient estimator functions. In addition, our novel attack generates adversarial examples capable of fooling both SNN and non-SNN models simultaneously. 
+In the paper we evaluate the attack on different SNNs, CNNs, and Vision transformers.
+MDSE utilizes a dynamic gradient estimation scheme to exploit multiple surrogate gradient estimator functions. The attack generates adversarial examples capable of fooling both SNN and non-SNN models. 
 
 ## Citation
 
@@ -23,12 +23,12 @@ MDSE utilizes a dynamic gradient estimation scheme to fully exploit multiple sur
 
 ## Features
 
-- **MDSE Attack**: Novel dynamic gradient estimation attack for SNNs
-- **Multi-Model Support**: Attack both CNN and SNN models simultaneously
+- **MDSE Attack**: Dynamic gradient estimation attack for SNNs
+- **Multi-Model Support**: Attack both CNN and SNN models
 - **Multiple Surrogate Gradients**: Support for Arctan, Linear, STDB, Erfc, Logistic, etc.
-- **Comprehensive Attack Methods**: MDSE, SAGA, MIM, PGD, AutoPGD, Greedy attacks
-- **Multiple Datasets**: CIFAR-10, CIFAR-100, ImageNet support
-- **Multiple Model Architectures**: VGG, ResNet, ViT, BiT, DietSNN, SpikingJelly
+- **Attack Methods**: MDSE, SAGA, MIM, PGD, AutoPGD, Greedy attacks
+- **Datasets**: CIFAR-10, CIFAR-100, ImageNet support
+- **Model Architectures**: VGG, ResNet, ViT, BiT, DietSNN, SpikingJelly
 
 ## Quick Start
 
@@ -106,9 +106,9 @@ AttackMethods.SNN_AutoSAGA_two_snnsnn(modelDir1, modelDir2, dataset)
 - **FastSigmoid**: Fast sigmoid approximation
 
 ### Model Configurations
-- **CNN Models**: VGG-16, ResNet-56, ResNet-152
+- **CNN Models**: VGG-16, ResNet-56
 - **SNN Models**: DietSNN, SpikingJelly ResNet, VGG-SNN
-- **Transformer Models**: ViT-L-16, ViT-B-16, BiT-M-R50x1, BiT-M-R152x4
+- **Transformer Models**: ViT-L-16, ViT-B-16, BiT-M-R50x1, BiT-M-R152x4 (if models are available)
 
 ## Software Installation
 
@@ -146,32 +146,29 @@ There are more packages needed to run certain models, you may install if needed.
 
 ## Models
 
-We provide the following models:
+The code supports the following model architectures:
 - **VGG-16** (CNN and SNN versions)
-- **Trans-SNN-VGG16-T5** (Transformer-based SNN)
-- **RESNET** (ResNet-56, ResNet-152)
+- **ResNet** (ResNet-56, ResNet-152)
 - **BP trained SNNs** (Backpropagation-trained SNNs)
-- **ViT-L-16** (Vision Transformer Large)
-- **BiT-M-R101x3** (BigTransfer ResNet-101)
 - **DietSNN** (Diet Spiking Neural Networks)
 - **SpikingJelly Models** (Various SNN architectures)
+- **Transformer Models** (ViT, BiT)
 
-**Download models:** https://drive.google.com/drive/folders/1EyQFF7KSQci4N-DehKyMIp3-WELz7ko9?usp=sharing
+**Download models:** https://drive.google.com/drive/folders/1Evl7xhZUvwZGSaKJaIE2gwGZJCTQ3yDM?usp=sharing
 
-For now we provide models for CIFAR10, more pretrained models for CIFAR10, CIFAR100 and ImageNet will be uploaded later.
+Note: Model files need to be downloaded separately and placed in the appropriate directories.
 
 ## System Requirements
 
-- **OS**: Ubuntu 20.04.5 (tested)
-- **GPU**: RTX 3090 Ti (recommended)
+- **OS**: Linux/macOS/Windows (Ubuntu 20.04.5 tested)
+- **GPU**: CUDA-compatible GPU (recommended)
 - **RAM**: 16GB+ (recommended)
 - **CUDA**: 11.7+ (required for GPU acceleration)
 
 **Performance Notes:**
-- The Adaptive attack has additional hardware requirements
-- Attacks on ImageNet's ViT or BiT models will take a long time due to the very small batch size
-- CIFAR-10 attacks typically complete in 10-30 minutes
-- ImageNet attacks may take several hours
+- Attacks on ImageNet models may take longer due to larger image sizes
+- CIFAR-10 attacks typically complete in reasonable time
+- Performance depends on hardware specifications and model complexity
 
 ## Troubleshooting
 
@@ -213,10 +210,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions or concerns please contact the author at: nux219@lehigh.edu
+For questions or concerns please contact the author at:
+- nux219@lehigh.edu
+- kaleel.mahmood@uri.edu
+- hfang02@syr.edu
 
-## Acknowledgments
 
-- SpikingJelly framework for SNN implementations
-- PyTorch team for the deep learning framework
-- Vision Transformer and BigTransfer model implementations
+
